@@ -27,16 +27,16 @@
 ---
 - nodemon -> auto restarts server when you save changes ( dev dependency )
 
-[Render](https://image-meta-data-filter-1.onrender.com/api/v1)
+[Render](https://image-meta-data-filter.onrender.com/api/v1)
 
 Links for use in Postman 
 
-[Register](https://image-meta-data-filter-1.onrender.com/api/v1/auth/register)  'Post method' 
-[Login](https://image-meta-data-filter-1.onrender.com/api/v1/auth/login)        'post method'
-[Upload image](https://image-meta-data-filter-1.onrender.com/api/v1/images)     'post method'
-[Get image](https://image-meta-data-filter-1.onrender.com/api/v1/images)        'Get method'
-[Update data](https://image-meta-data-filter-1.onrender.com/api/v1/images/:id)  'Patch method'
-[Delete image](https://image-meta-data-filter-1.onrender.com/api/v1/images/:id)  'Delete method'   
+[Register](https://image-meta-data-filter.onrender.com/api/v1/auth/register)  'Post method' 
+[Login](https://image-meta-data-filter.onrender.com/api/v1/auth/login)        'post method'
+[Upload image](https://image-meta-data-filter.onrender.com/api/v1/images)     'post method'
+[Get image](https://image-meta-data-filter.onrender.com/api/v1/images)        'Get method'
+[Update data](https://image-meta-data-filter.onrender.com/api/v1/images/:id)  'Patch method'
+[Delete image](https://image-meta-data-filter.onrender.com/api/v1/images/:id)  'Delete method'   
 
 Overall Flow
 ```mermaid
