@@ -1,6 +1,6 @@
 # Image Meta Data Filter: 
 
-- This application helps users to sort or filter their images based on their meta data. 
+- This application helps users to filter their images based on their meta data. 
 - this is achieved by extracting meta data of an uploaded image using exif parser.
 
 
@@ -37,3 +37,30 @@ Links for use in Postman
 [Get image](https://image-meta-data-filter-1.onrender.com/api/v1/images)        'Get method'
 [Update data](https://image-meta-data-filter-1.onrender.com/api/v1/images/:id)  'Patch method'
 [Delete image](https://image-meta-data-filter-1.onrender.com/api/v1/images/:id)  'Delete method'   
+
+Overall Flow
+```mermaid
+flowchart TD
+
+A[User] --> B[Rate-limiter, CORS, helmet]
+B --> C{Auth}
+C --> |Yes| D[Authenticated]
+C --> |No| E[Rejected]
+D --> F{JWT Verifier}
+F --> |Yes| G[Token valid]
+F --> |No| H[Token expired]
+G --> I[Application Server]
+I --> J[MongoDB User & Image Info]
+I --> K[Cloudinary Image uploads]
+```
+Image upload flow 
+```mermaid
+flowchart TD
+A[User] -- uploads image --> B[Application Server]
+B --> C{Multer validation}
+C --> |Yes| D[Valid]
+C --> |No| E[Rejected]
+D --> F[Image info in MongoDB]
+D --> H[Image upload to Cloudinary]
+```
+
