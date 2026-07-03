@@ -38,7 +38,7 @@ Links for use in Postman
 [Update data](https://image-meta-data-filter.onrender.com/api/v1/images/:id)  'Patch method'
 [Delete image](https://image-meta-data-filter.onrender.com/api/v1/images/:id)  'Delete method'   
 
-Overall Flow
+## Overall Flow
 ```mermaid
 flowchart TD
 
@@ -53,7 +53,7 @@ G --> I[Application Server]
 I --> J[MongoDB User & Image Info]
 I --> K[Cloudinary Image uploads]
 ```
-Image upload flow 
+## Image upload Flow 
 ```mermaid
 flowchart TD
 A[User] -- uploads image --> B[Application Server]
@@ -63,4 +63,16 @@ C --> |No| E[Rejected]
 D --> F[Image info in MongoDB]
 D --> H[Image upload to Cloudinary]
 ```
+## Image Filter Flow
 
+```mermaid
+flowchart TD
+	A[User] --> B{Middleware}
+	B --> |Yes| C[Passed]
+	B --> |No| D[Failed]
+	C --> E[Application Server]
+	E -- Sends Query --> F[MongoDB]
+	F --> G[Cloudinary]
+	G -- sends to server --> E
+	E -- sends to user --> A
+```
